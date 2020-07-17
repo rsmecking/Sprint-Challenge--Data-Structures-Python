@@ -1,5 +1,6 @@
-# names.py
+# imports
 import time
+from binary_search_tree import BSTNode
 
 start_time = time.time()
 
@@ -13,11 +14,21 @@ f.close()
 
 duplicates = []  # Return the list of duplicates in this data structure
 
+#base runtime: 9.739886045455933 seconds
 # Replace the nested for loops below with your improvements
-for name_1 in names_1:
-    for name_2 in names_2:
-        if name_1 == name_2:
-            duplicates.append(name_1)
+# for name_1 in names_1:
+#     for name_2 in names_2:
+#         if name_1 == name_2:
+#             duplicates.append(name_1)
+
+# BST runtime: 0.14993882179260254 seconds
+bst = BSTNode(names_1[0]) # had to index avoid runtime syntax error
+for i in range(1, len(names_1)):
+    bst.insert(names_1[i])
+for n in names_2:
+    if bst.contains(n):
+        duplicates.append(n)
+
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
