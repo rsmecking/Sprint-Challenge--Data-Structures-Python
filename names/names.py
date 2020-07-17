@@ -14,15 +14,15 @@ f.close()
 
 duplicates = []  # Return the list of duplicates in this data structure
 
-#base runtime: 9.739886045455933 seconds
+#base runtime: 9.739886045455933 seconds Polynomial O(n^c)
 # Replace the nested for loops below with your improvements
 # for name_1 in names_1:
 #     for name_2 in names_2:
 #         if name_1 == name_2:
 #             duplicates.append(name_1)
 
-# BST runtime: 0.14993882179260254 seconds
-bst = BSTNode(names_1[0]) # had to index avoid runtime syntax error
+# BST runtime: 0.14993882179260254 seconds Linearithmic O(nlogn)
+bst = BSTNode(names_1[0]) # had to index avoid runtime syntax error https://realpython.com/invalid-syntax-python/
 for i in range(1, len(names_1)):
     bst.insert(names_1[i])
 for n in names_2:
